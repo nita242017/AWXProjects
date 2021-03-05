@@ -1,0 +1,10 @@
+---
+- name: List all compute instances in Ansible compartment
+  connection: local
+  hosts: localhost
+  tasks:
+    - name: Create bucket
+      oci_instance_facts:
+        compartment_id: ocid1.compartment.oc1..aaaaaaaayjzc6vkftjasjrparehw66t2suojz3sj5sgn4qpezahkicpl2oxq
+      register: currinstances
+    - debug: msg="{{currinstances}}"
